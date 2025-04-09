@@ -1,13 +1,13 @@
-# Brain Tumor MRI Classifier
+# NeuroMRI-Classifier
 
-A deep learning project to classify brain tumors from MRI scans.
+A deep learning project for binary classification of brain tumors from MRI scans using TensorFlow.
 
-### Create and activate a virtual environment, then install requirements.txt
+## Setup
+
+Create and activate a virtual environment, then install the required dependencies:
 
 ```bash
 python3.9 -m venv ~/venv-metal
 source ~/venv-metal/bin/activate
-python -m pip install -U pip
+python -m pip install --upgrade pip
 pip install -r requirements.txt
-
-
