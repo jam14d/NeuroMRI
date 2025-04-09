@@ -1,4 +1,4 @@
-# NeuroMRI-Classifier
+# NeuroMRI
 
 A deep learning project for binary classification of brain tumors from MRI scans using TensorFlow.
 
