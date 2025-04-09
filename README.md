@@ -47,16 +47,12 @@ git clone https://github.com/your-username/NeuroMRI-Classifier.git
 cd NeuroMRI-Classifier
 ```
 
-### Create and activate a virtual environment
+### Create and activate a virtual environment, then install requirements.txt
 
 ```bash
-python3 -m venv neuro-mri
-source neuro-mri/bin/activate  
-```
-
-### Install dependencies
-
-```bash
+python3.9 -m venv ~/venv-metal
+source ~/venv-metal/bin/activate
+python -m pip install -U pip
 pip install -r requirements.txt
-```
+
 
