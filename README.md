@@ -1,6 +1,6 @@
 # Brain Tumor MRI Classifier
 
-A deep learning project to classify brain tumors from MRI scans using a convolutional neural network (CNN). 
+A deep learning project to classify brain tumors from MRI scans.
 
 ---
 
