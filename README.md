@@ -1,6 +1,6 @@
 # NeuroMRI
 
-**NeuroMRI** is a deep learning project aiming to automatically classify brain MRI scans as either showing signs of a **glioma tumor** or indicating **no tumor**. This binary classification task aims to support early and accurate detection of brain tumors using medical imaging.
+This is a deep learning project aiming to automatically classify brain MRI scans as either showing signs of a **glioma tumor** or indicating **no tumor**. This binary classification task aims to support early and accurate detection of brain tumors using medical imaging.
 
 The dataset used for this project comes from Kaggle:
 [Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
