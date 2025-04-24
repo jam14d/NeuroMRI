@@ -7,6 +7,8 @@ from tensorflow.keras.models import load_model
 from load_data import get_data_generators
 
 
+#IN PROGRESS
+
 def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index=None):
     grad_model = tf.keras.models.Model(
         [model.inputs], [model.get_layer(last_conv_layer_name).output, model.output]
@@ -75,7 +77,7 @@ if __name__ == "__main__":
     last_conv_layer_name = [layer.name for layer in model.layers if isinstance(layer, tf.keras.layers.Conv2D)][-1]
     print("Using last conv layer:", last_conv_layer_name)
 
-    _, _, test_generator = get_data_generators(test_mode=True)
+    _, _, test_generator = get_data_generators(debug_mode=False)
 
     # Find a glioma (label = 1) test image
     for i in range(10):
