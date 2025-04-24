@@ -7,3 +7,4 @@ __pycache__/
 .DS_Store
 neuro-mri/
 /Users/jamieannemortel/Desktop/Neuro-MRI/Icon
+glioma_classifier.h5

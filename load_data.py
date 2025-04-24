@@ -1,84 +1,65 @@
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from preprocess import training_data_generator, validation_data_generator
 
-
-# Define constants
+# Constants
 IMAGE_SIZE = (256, 256)
-BATCH_SIZE = 32
 COLOR_MODE = "grayscale"
 CLASS_MODE = "binary"
 
-# Paths to dataset directories
+# Directory paths
 TRAIN_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/train"
 VAL_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/val"
 TEST_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/test"
 
-# Data generator for training (with augmentation)
-train_datagen = ImageDataGenerator(
-    rescale=1.0/255,
-    rotation_range=15,
-    width_shift_range=0.05,
-    height_shift_range=0.05,
-    zoom_range=0.2
-)
+def get_data_generators(debug_mode=False, batch_size=32):
+    """
+    Returns train, val, and test generators.
 
-# Data generator for validation and test (only rescaling)
-test_val_datagen = ImageDataGenerator(rescale=1.0/255)
+    If debug_mode is True:
+    - Uses a small batch size (e.g. 4) for fast pipeline testing
+    - Intended for sanity checks, not real training or evaluation
+    """
+    if debug_mode:
+        print("🚧 DEBUG MODE: Using small batch size for quick pipeline test.")
+        batch_size = 4  # Tiny batch for debugging only
 
-# Create generators
-train_generator = train_datagen.flow_from_directory(
-    TRAIN_DIR,
-    target_size=IMAGE_SIZE,
-    color_mode=COLOR_MODE,
-    class_mode=CLASS_MODE,
-    batch_size=BATCH_SIZE,
-    shuffle=True
-)
+    # Data augmentation for training
+    train_datagen = ImageDataGenerator(
+        rescale=1.0/255,
+        rotation_range=15,
+        width_shift_range=0.05,
+        height_shift_range=0.05,
+        zoom_range=0.2
+    )
 
-val_generator = test_val_datagen.flow_from_directory(
-    VAL_DIR,
-    target_size=IMAGE_SIZE,
-    color_mode=COLOR_MODE,
-    class_mode=CLASS_MODE,
-    batch_size=BATCH_SIZE,
-    shuffle=False
-)
+    # No augmentation for val/test
+    test_val_datagen = ImageDataGenerator(rescale=1.0/255)
 
-test_generator = test_val_datagen.flow_from_directory(
-    TEST_DIR,
-    target_size=IMAGE_SIZE,
-    color_mode=COLOR_MODE,
-    class_mode=CLASS_MODE,
-    batch_size=BATCH_SIZE,
-    shuffle=False
-)
+    train_generator = train_datagen.flow_from_directory(
+        TRAIN_DIR,
+        target_size=IMAGE_SIZE,
+        color_mode=COLOR_MODE,
+        class_mode=CLASS_MODE,
+        batch_size=batch_size,
+        shuffle=True,
+        seed=42
+    )
 
+    val_generator = test_val_datagen.flow_from_directory(
+        VAL_DIR,
+        target_size=IMAGE_SIZE,
+        color_mode=COLOR_MODE,
+        class_mode=CLASS_MODE,
+        batch_size=batch_size,
+        shuffle=False
+    )
 
-# Testing
+    test_generator = test_val_datagen.flow_from_directory(
+        TEST_DIR,
+        target_size=IMAGE_SIZE,
+        color_mode=COLOR_MODE,
+        class_mode=CLASS_MODE,
+        batch_size=batch_size,
+        shuffle=False
+    )
 
-# Fetch one batch from each generator
-train_images, train_labels = next(train_generator)
-val_images, val_labels = next(val_generator)
-test_images, test_labels = next(test_generator)
-
-# Print shapes to confirm everything is loading properly
-print("Train batch shape:", train_images.shape, train_labels.shape)
-print("Validation batch shape:", val_images.shape, val_labels.shape)
-print("Test batch shape:", test_images.shape, test_labels.shape)
-
-# Optional: visualize some samples
-import matplotlib.pyplot as plt
-
-def plot_sample_images(images, labels, title, n=5):
-    plt.figure(figsize=(15, 3))
-    for i in range(n):
-        plt.subplot(1, n, i+1)
-        plt.imshow(images[i].squeeze(), cmap="gray")
-        plt.title(f"Label: {int(labels[i])}")
-        plt.axis('off')
-    plt.suptitle(title)
-    plt.show()
-
-plot_sample_images(train_images, train_labels, "Sample Training Images")
-plot_sample_images(val_images, val_labels, "Sample Validation Images")
-plot_sample_images(test_images, test_labels, "Sample Test Images")
+    return train_generator, val_generator, test_generator
