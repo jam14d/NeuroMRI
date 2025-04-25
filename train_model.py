@@ -44,7 +44,7 @@ if not DEBUG_MODE:
     checkpoint = ModelCheckpoint(filepath=MODEL_PATH, save_best_only=True, monitor='val_loss')
     callbacks = [early_stopping, checkpoint]
 
-# === TRAINING ===
+# TRAINING 
 print("Starting training..." + (" (DEBUG MODE)" if DEBUG_MODE else ""))
 history = model.fit(
     train_generator,
@@ -55,6 +55,6 @@ history = model.fit(
     callbacks=callbacks
 )
 
-# === SAVE MODEL ===
+# SAVE MODEL 
 model.save(MODEL_PATH)
 print(f"Model saved to {MODEL_PATH}")
