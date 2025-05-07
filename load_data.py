@@ -10,7 +10,7 @@ TRAIN_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/train"
 VAL_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/val"
 TEST_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/test"
 
-def get_data_generators(debug_mode=False, batch_size=32):
+def get_data_generators(debug_mode=False, batch_size=128):
     """
     Returns train, val, and test generators.
 
@@ -19,7 +19,7 @@ def get_data_generators(debug_mode=False, batch_size=32):
     - Intended for sanity checks, not real training or evaluation
     """
     if debug_mode:
-        print("🚧 DEBUG MODE: Using small batch size for quick pipeline test.")
+        print("DEBUG MODE: Using small batch size for quick pipeline test.")
         batch_size = 4  # Tiny batch for debugging only
 
     # Data augmentation for training
