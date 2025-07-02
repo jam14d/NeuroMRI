@@ -5,22 +5,16 @@ This is a deep learning project aiming to automatically classify brain MRI scans
 The dataset used for this project comes from Kaggle:
 [Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
 
-
-## Setup
-
-Create and activate a virtual environment, then install the required dependencies:
-
-```bash
-python3.9 -m venv ~/venv-metal
-source ~/venv-metal/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
----
-
 ## How to Run
 
 You can run everything in Google Colab, which provides free access to a GPU and a Python environment.
+
+For local, create and activate a virtual environment, then install the required dependencies:
+
+```bash
+python3.9 -m venv ~/venv-metal
+source ~/venv-metal/bin/activate 
+```
 
 ### 1. **Create Binary Dataset**
 
