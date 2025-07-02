@@ -2,8 +2,10 @@
 
 This is a deep learning project aiming to automatically classify brain MRI scans as either showing signs of a **glioma tumor** or indicating **no tumor**. 
 
-The dataset used for this project comes from Kaggle:
-[Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
+
+![True Positive Example (Glioma Tumor)](/Users/jamieannemortel/Desktop/Neuro-MRI/TN_GRADCAM.webp)
+The model correctly predicts “Glioma” with 100% confidence. Grad-CAM highlights central regions correlated with tumor presence.
+
 
 ## How to Run
 
@@ -75,3 +77,8 @@ Only `glioma` and `no_tumor` classes will be used in training.
 * The trained model is saved as `glioma_classifier.h5`.
 * Grad-CAM visualizations help verify the model focuses on relevant areas in the MRI images.
 * `DEBUG_MODE` in `train_model.py` allows fast training/testing for development.
+
+---
+The dataset used for this project comes from Kaggle:
+[Brain Tumor MRI Dataset](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)
+
