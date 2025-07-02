@@ -3,7 +3,7 @@ import shutil
 from pathlib import Path
 
 """
-Copy data into binary dataset.
+Copies only the "glioma" and "no_tumor" categories from a multi-class dataset to create a binary dataset (organized into train, val, test).
 """
 
 # Path to your original dataset

@@ -3,6 +3,12 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from load_data import get_data_generators
 
+"""
+
+Defines and trains a CNN for binary classification, saves model.
+
+"""
+
 # CONFIGURATION 
 DEBUG_MODE = False  # Set to False for full training
 EPOCHS = 1 if DEBUG_MODE else 15

@@ -5,6 +5,12 @@ import cv2
 from tensorflow.keras.models import load_model
 from load_data import get_data_generators
 
+
+"""
+Loads the trained model and test data to visualize predictions using Grad-CAM heatmaps.
+
+"""
+
 # Make Grad-CAM heatmap (binary classification version)
 def make_gradcam_heatmap(img_array, model, last_conv_layer_name):
     grad_model = tf.keras.models.Model(

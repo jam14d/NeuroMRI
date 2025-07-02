@@ -1,5 +1,9 @@
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
+"""
+Uses Keras ImageDataGenerator to prepare data for training/testing with augmentation (train only)
+"""
+
 # Constants
 IMAGE_SIZE = (256, 256)
 COLOR_MODE = "grayscale"
