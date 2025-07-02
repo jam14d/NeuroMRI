@@ -20,6 +20,8 @@ pip install -r requirements.txt
 
 ## How to Run
 
+You can run everything in Google Colab, which provides free access to a GPU and a Python environment.
+
 ### 1. **Create Binary Dataset**
 
 Extract only `glioma` and `no_tumor` classes into a new dataset folder.
