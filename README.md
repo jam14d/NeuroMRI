@@ -9,7 +9,7 @@ The dataset used for this project comes from Kaggle:
 
 You can run everything in Google Colab, which provides free access to a GPU and a Python environment.
 
-For local, create and activate a virtual environment, then install the required dependencies:
+For local -- create and activate a virtual environment, then install the required dependencies:
 
 ```bash
 python3.9 -m venv ~/venv-metal
