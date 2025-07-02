@@ -3,7 +3,7 @@
 This is a deep learning project aiming to automatically classify brain MRI scans as either showing signs of a **glioma tumor** or indicating **no tumor**. 
 
 
-![True Positive Example (Glioma Tumor)](/Users/jamieannemortel/Desktop/Neuro-MRI/TN_GRADCAM.webp)
+![Glioma - GradCAM](images/TP_GRADCAM.webp)
 The model correctly predicts “Glioma” with 100% confidence. Grad-CAM highlights central regions correlated with tumor presence.
 
 
