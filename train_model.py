@@ -2,6 +2,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from load_data import get_data_generators
+import matplotlib.pyplot as plt
 
 """
 
@@ -64,3 +65,19 @@ history = model.fit(
 # SAVE MODEL 
 model.save(MODEL_PATH)
 print(f"Model saved to {MODEL_PATH}")
+
+# EVALUATE ON TEST SET
+loss, acc = model.evaluate(test_generator)
+print(f"Test Accuracy: {acc:.2%}")
+
+# PLOT TRAINING HISTORY
+plt.figure(figsize=(8, 4))
+plt.plot(history.history['accuracy'], label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], label='Val Accuracy')
+plt.title("Accuracy over Epochs")
+plt.xlabel("Epoch")
+plt.ylabel("Accuracy")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()

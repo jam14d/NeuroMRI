@@ -10,9 +10,9 @@ COLOR_MODE = "grayscale"
 CLASS_MODE = "binary"
 
 # Directory paths
-TRAIN_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/train"
-VAL_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/val"
-TEST_DIR = "/Users/jamieannemortel/BinaryBrainTumorDataset/test"
+TRAIN_DIR = "BinaryBrainTumorDataset/train"
+VAL_DIR = "BinaryBrainTumorDataset/val"
+TEST_DIR = "BinaryBrainTumorDataset/test"
 
 def get_data_generators(debug_mode=False, batch_size=128):
     """
