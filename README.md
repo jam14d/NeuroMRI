@@ -4,7 +4,7 @@ This is a deep learning project aiming to automatically classify brain MRI scans
 
 
 ![Glioma - GradCAM](images/TP_GRADCAM.webp)
-**Example output from gradcam.py (No Tumor)**.
+**Example output from gradcam.py**.
 The model correctly predicts “No Tumor” with 98% confidence. Grad-CAM highlights show low activation across the image, consistent with absence of tumor features.
 
 
