@@ -10,9 +10,10 @@ COLOR_MODE = "grayscale"
 CLASS_MODE = "binary"
 
 # Directory paths
-train_dir = '/content/drive/MyDrive/BinaryBrainTumorDataset/train'
-val_dir = '/content/drive/MyDrive/BinaryBrainTumorDataset/val'
-model_path = '/content/drive/MyDrive/Models/glioma_classifier.h5'
+TRAIN_DIR = '/content/drive/MyDrive/BinaryBrainTumorDataset/train'
+VAL_DIR   = '/content/drive/MyDrive/BinaryBrainTumorDataset/val'
+TEST_DIR  = '/content/drive/MyDrive/BinaryBrainTumorDataset/test'
+
 
 
 def get_data_generators(debug_mode=False, batch_size=128):
