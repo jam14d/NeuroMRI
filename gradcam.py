@@ -66,7 +66,7 @@ def show_gradcam(image, heatmap, prediction, confidence, label, alpha=0.4):
 
 # --- MAIN SCRIPT ---
 if __name__ == "__main__":
-    model = load_model("glioma_classifier.h5")
+    model = load_model("/content/drive/MyDrive/Models/glioma_classifier.h5")
     model.summary()
 
     last_conv_layer_name = [layer.name for layer in model.layers if isinstance(layer, tf.keras.layers.Conv2D)][-1]

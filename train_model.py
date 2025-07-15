@@ -3,11 +3,11 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from load_data import get_data_generators
 import matplotlib.pyplot as plt
+from datetime import datetime
+import os
 
 """
-
-Defines and trains a CNN for binary classification, saves model.
-
+Defines and trains a CNN for binary classification, saves model with timestamp.
 """
 
 # CONFIGURATION 
@@ -15,8 +15,13 @@ DEBUG_MODE = False  # Set to False for full training
 EPOCHS = 1 if DEBUG_MODE else 15
 STEPS_PER_EPOCH = 2 if DEBUG_MODE else None
 VAL_STEPS = 1 if DEBUG_MODE else None
-MODEL_PATH = '/content/drive/MyDrive/Models/glioma_classifier.h5'
 IMAGE_SHAPE = (256, 256, 1)
+
+# GENERATE TIMESTAMPED MODEL PATH
+timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+model_dir = '/content/drive/MyDrive/Models'
+os.makedirs(model_dir, exist_ok=True)
+MODEL_PATH = os.path.join(model_dir, f'glioma_classifier_{timestamp}.h5')
 
 # LOAD DATA 
 train_generator, val_generator, test_generator = get_data_generators(debug_mode=DEBUG_MODE)
@@ -62,7 +67,7 @@ history = model.fit(
     callbacks=callbacks
 )
 
-# SAVE MODEL 
+# SAVE FINAL MODEL 
 model.save(MODEL_PATH)
 print(f"Model saved to {MODEL_PATH}")
 
