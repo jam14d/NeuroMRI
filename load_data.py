@@ -35,6 +35,7 @@ def get_data_generators(debug_mode=False, batch_size=128):
         width_shift_range=0.05,
         height_shift_range=0.05,
         zoom_range=0.2
+        horizontal_flip=True  # added
     )
 
     # No augmentation for val/test
