@@ -15,7 +15,7 @@ DEBUG_MODE = False  # Set to False for full training
 EPOCHS = 1 if DEBUG_MODE else 15
 STEPS_PER_EPOCH = 2 if DEBUG_MODE else None
 VAL_STEPS = 1 if DEBUG_MODE else None
-MODEL_PATH = "glioma_classifier.h5"
+MODEL_PATH = '/content/drive/MyDrive/Models/glioma_classifier.h5'
 IMAGE_SHAPE = (256, 256, 1)
 
 # LOAD DATA 
