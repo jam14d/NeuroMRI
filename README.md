@@ -13,6 +13,8 @@ The model correctly predicts “Glioma” with 100% confidence. Grad-CAM highlig
 
 You can run everything in Google Colab, which provides free access to a GPU and a Python environment.
 
+Project Colab: https://colab.research.google.com/drive/1Jxjq0810OwMi2SzJkci2TYOn-RLRhw2l?usp=sharing
+
 For local -- create and activate a virtual environment, then install the required dependencies:
 
 ```bash
